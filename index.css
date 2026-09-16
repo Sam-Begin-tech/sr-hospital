@@ -3422,6 +3422,14 @@ p {
     backdrop-filter: blur(2px);
 }
 
+.gallery-placeholder img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 83%;
+    object-fit: contain;
+}
+
 .gallery-placeholder span {
     position: relative;
     z-index: 1;
@@ -3462,4 +3470,64 @@ p {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+/* =========================================
+   APPOINTMENT SUCCESS POPUP
+========================================= */
+
+.modal-open {
+    overflow: hidden;
+}
+
+.success-modal[hidden] {
+    display: none;
+}
+
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(20, 33, 61, 0.58);
+}
+
+.success-modal-content {
+    width: min(100%, 440px);
+    padding: 38px 32px 32px;
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: 0 25px 70px rgba(20, 33, 61, 0.2);
+}
+
+.success-modal-icon {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 18px;
+    color: var(--white);
+    background: var(--secondary);
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.success-modal-content h2 {
+    margin-bottom: 12px;
+    font-size: 26px;
+}
+
+.success-modal-content p {
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.success-modal-button {
+    margin: 0 auto;
 }

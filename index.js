@@ -377,6 +377,36 @@ const formMessage =
         "formMessage"
     );
 
+const successModal =
+    document.getElementById(
+        "successModal"
+    );
+
+const successModalButton =
+    document.getElementById(
+        "successModalButton"
+    );
+
+let submittedEmail = "";
+
+
+if (successModalButton) {
+
+    successModalButton.addEventListener(
+        "click",
+        () => {
+
+            const whatsappMessage =
+                `Hello S R Hospital, I submitted an appointment request. My email is ${submittedEmail}.`;
+
+            window.location.href =
+                `https://wa.me/919150406570?text=${encodeURIComponent(whatsappMessage)}`;
+
+        }
+    );
+
+}
+
 
 if (appointmentForm) {
 
@@ -490,6 +520,9 @@ if (appointmentForm) {
                     data.success
                 ) {
 
+                    submittedEmail =
+                        formData.get("email") || "";
+
                     /*
                      * Show success message
                      */
@@ -511,6 +544,21 @@ if (appointmentForm) {
                      */
 
                     appointmentForm.reset();
+
+                    if (successModal) {
+
+                        successModal.hidden = false;
+                        document.body.classList.add(
+                            "modal-open"
+                        );
+
+                        if (successModalButton) {
+
+                            successModalButton.focus();
+
+                        }
+
+                    }
 
 
                 } else {
